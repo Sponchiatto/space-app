@@ -15,9 +15,7 @@ const Galeria = () => {
     return (
         <>
             <Tags />
-            
-            <GaleriaContainer>
-                
+            <GaleriaContainer>  
                 <SecaoFluida>
                     <Titulo>Navegue pela galeria</Titulo>
                 </SecaoFluida>
