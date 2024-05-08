@@ -17,7 +17,7 @@ const DialogEstilizado = styled.dialog`
   background: transparent;
   padding: 0;
   border: 0;
-  width: 1156px;
+  width: 978px;
   display: flex;
   justify-content: center;
   form {
@@ -29,15 +29,17 @@ const DialogEstilizado = styled.dialog`
     }
 `;
 
-const ModalZoom = ({foto}) => {
+
+const ModalZoom = ({foto, aoFechar}) => {
+
     return (
         <>
             {foto && <>
                 <Overlay/>
                 <DialogEstilizado open = {!!foto}>
                     <Image foto = {foto} expandida = {true} />
-                    <form method="dialog">
-                        <BotaoIcone formMethod="dialog">
+                    <form method="dialog" >
+                        <BotaoIcone formMethod="dialog" onClick={aoFechar}>
                             <img src="/icones/fechar.png" alt="Icone de fechar" />
                         </BotaoIcone>
                     </form>

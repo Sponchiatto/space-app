@@ -35,6 +35,11 @@ const ConteudoGaleria = styled.section`
 const App = () => {
   const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos)
   const [fotoSelecionada, setFotoSelecionada] = useState(null)
+
+  const fecharModal = () => {
+    setFotoSelecionada(null);
+  };
+
   return (
   <FundoGradiente>
     <EstilosGlobais/>
@@ -52,7 +57,7 @@ const App = () => {
         </ConteudoGaleria>
       </ContainerMain>
     </AppContainer> 
-    <ModalZoom foto = {fotoSelecionada}/>
+    <ModalZoom foto = {fotoSelecionada} aoFechar = {fecharModal}/>
   </FundoGradiente>
   
   )
