@@ -36,6 +36,22 @@ const App = () => {
   const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos)
   const [fotoSelecionada, setFotoSelecionada] = useState(null)
 
+const aoAlternarFavorito = (foto) => {
+    if (foto.id === fotoSelecionada?.id) {
+        setFotoSelecionada({
+            ...fotoSelecionada,
+            favorita: !fotoSelecionada.favorita
+        });
+    }
+    setFotosDaGaleria(fotosDaGaleria.map(fotoDaGaleria => {
+        return {
+            ...fotoDaGaleria,
+            favorita: fotoDaGaleria.id === foto.id ? !fotoDaGaleria.favorita : fotoDaGaleria.favorita
+        };
+    }));
+};
+
+
   const fecharModal = () => {
     setFotoSelecionada(null);
   };
@@ -52,12 +68,13 @@ const App = () => {
           <Banner texto={"A galeira mais completa de fotos do espaço"} backgroundImage={'./banner/FotoBanner.png'}/>
           <Galeria 
             fotos = {fotosDaGaleria} 
+            aoAlternarFavorito = {aoAlternarFavorito}
             aoFotoSelecionada = { foto => setFotoSelecionada(foto)}
           />
         </ConteudoGaleria>
       </ContainerMain>
     </AppContainer> 
-    <ModalZoom foto = {fotoSelecionada} aoFechar = {fecharModal}/>
+    <ModalZoom foto = {fotoSelecionada} aoFechar = {fecharModal}  aoAlternarFavorito = {aoAlternarFavorito}/>
   </FundoGradiente>
   
   )
