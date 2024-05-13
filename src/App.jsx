@@ -39,8 +39,14 @@ const App = () => {
   const [filtro, setFiltro] = useState('') //filtro via campo texto
 
 useEffect(() => {
+  // Lista de fotos filtradas a partir da lista original "fotos". Usando o método filter para iterar sobre cada
+  // elemento da lista e retornar um novo array contendo apenas os elementos que satisfaçam uma condição.
   const fotosFiltradas = fotos.filter(foto => {
-    const filtroPorTag = !tag || foto.tagId === tag
+
+    // Verifica se a tag está vazia ou não definida. Se estiver vazia a condição é verdadeira, 
+    // se não estiver vazia, a expressão verifica se tagId da foto é igual à tag fornecida.
+    const filtroPorTag = !tag || foto.tagId === tag 
+
     const filtroPorTitulo = !filtro || foto.titulo.toLowerCase().includes(filtro.toLowerCase())
     return filtroPorTag && filtroPorTitulo
   })

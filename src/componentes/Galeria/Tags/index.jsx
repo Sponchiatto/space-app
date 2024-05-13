@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import tags from './tags.json'
-
+import { useState } from "react"
 const TagsContainer = styled.section`
     display: flex;
     align-items: center;
@@ -27,6 +27,9 @@ const Tag = styled.button`
     &:hover {
         border-color: #C98CF1;
     }
+     &.active {
+        background-color: #c98cf1;
+    }
 `
 
 const Div = styled.div`
@@ -36,12 +39,26 @@ const Div = styled.div`
 `
 
 const Tags = ({setTag}) => {
+    const [activeTag, setActiveTag] = useState(null); // Estado para armazenar a tag ativa
+
+    const handleTagClick = (tag) => {
+        setTag(tag);
+        setActiveTag(tag); // Atualiza a tag ativa ao clicar
+    };
+
     return (
     <TagsContainer>
         <TagTitulo>Busque por tags: </TagTitulo>
         
         <Div>
-            {tags.map(tag => <Tag key={tag.id} onClick={() => setTag(tag.tag)}>{tag.titulo}</Tag>)}
+            {tags.map(tag => 
+                <Tag 
+                    key={tag.id} 
+                    onClick={() => handleTagClick(tag.tag)}
+                    className={activeTag === tag.tag ? 'active' : ''} 
+                >
+                    {tag.titulo}
+                </Tag>)}
         </Div>
         
     </ TagsContainer>
