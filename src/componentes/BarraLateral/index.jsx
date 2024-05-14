@@ -7,7 +7,6 @@ modules and components for the React component `BarraLateral` to function
 properly. */
 import styled from "styled-components";
 import ItemNavegacao from "./ItemNavegacao";
-import Banner from "../Banner";
 
 /* `const ListaEstilizada = styled.ul` is using the `styled-components` library to
 create a styled `ul` element. The CSS properties `padding: 0;`, `margin: 0;`,

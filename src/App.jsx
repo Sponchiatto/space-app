@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import EstilosGlobais from "./componentes/EstilosGlobais"
 import Cabecalho from "./componentes/Cabecalho"
-import CampoTexto from "./componentes/CampoTexto"
 import BarraLateral from "./componentes/BarraLateral"
 import Banner from "./componentes/Banner"
 import Galeria from "./componentes/Galeria"
