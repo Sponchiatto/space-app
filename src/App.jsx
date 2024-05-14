@@ -9,6 +9,7 @@ import Galeria from "./componentes/Galeria"
 import fotos from "./fotos.json"
 import { useState, useEffect } from "react"
 import ModalZoom from "./componentes/ModalZoom"
+import Rodape from "./componentes/Rodape"
 
 const FundoGradiente = styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -95,6 +96,7 @@ const aoAlternarFavorito = (foto) => {
       </ContainerMain>
     </AppContainer> 
     <ModalZoom foto = {fotoComZoom} aoFechar = {fecharModal}  aoAlternarFavorito = {aoAlternarFavorito}/>
+    <Rodape/>
   </FundoGradiente>
   
   )
